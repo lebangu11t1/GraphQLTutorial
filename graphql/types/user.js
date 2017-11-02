@@ -3,7 +3,7 @@ import {
 	GraphQLInputObjectType,
 	GraphQLNonNull,
 	GraphQLString,
-  GraphQLInt,
+    GraphQLInt,
 	GraphQLID,
 	GraphQLList
 } from 'graphql';
@@ -26,7 +26,7 @@ export const userType = new GraphQLObjectType({
     posts: {
 			type: new GraphQLList(postType),
 			resolve(user) {
-				const { _id } = user
+				const { _id } = user;
 				return PostModel.find({ uid: _id }).exec()
 			}
 		},

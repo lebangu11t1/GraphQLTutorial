@@ -1,1 +1,7 @@
 node_modules
+.idea/graphql-api-tutorial.iml
+.idea/inspectionProfiles/
+.idea/jsLibraryMappings.xml
+.idea/misc.xml
+.idea/modules.xml
+.idea/workspace.xml
