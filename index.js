@@ -4,6 +4,8 @@ import graphqlHTTP from 'express-graphql';
 // after adding graphql api
 import mongoose from 'mongoose';
 
+import cors from 'cors'
+
 //Later
 import schema from './graphql'
 const app = express();
@@ -13,6 +15,8 @@ const db = mongoose.connection;
 db.on('error', () => console.log('Failed to connect to DB.'))
 	.once('open', () => console.log('Connected to DB. '));
 
+// use it before all route definitions
+app.use(cors({origin: 'http://localhost:3001'}));
 
 app.get('/', (req, res) => {
   res.send('Hello World..');

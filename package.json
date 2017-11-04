@@ -11,6 +11,7 @@
   "license": "''''''''''''''''''''''''''''''''",
   "dependencies": {
     "bluebird": "^3.4.7",
+    "cors": "^2.8.4",
     "express": "^4.14.1",
     "express-graphql": "^0.6.3",
     "graphql": "^0.9.1",

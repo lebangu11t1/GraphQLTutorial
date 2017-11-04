@@ -6,39 +6,30 @@ import {
     GraphQLID,
     GraphQLList
 } from 'graphql';
+import {postType} from "./post";
 
-import PostModel from '../../models/post';
-import {postType} from './post';
-
-export const userType = new GraphQLObjectType({
-    name: 'User',
+export const cateType = new GraphQLObjectType({
+    name: 'Cate',
     fields: () => ({
         _id: {
             type: new GraphQLNonNull(GraphQLID)
-        },
-        email: {
-            type: GraphQLString
         },
         name: {
             type: GraphQLString
         },
         posts: {
             type: new GraphQLList(postType),
-            resolve(user) {
-                const {_id} = user;
-                return PostModel.find({uid: _id}).exec()
+            resolve(cate) {
+                const { _id } = cate;
+                return PostModel.find({ cid: _id }).exec()
             }
         },
     })
 })
 
-
-export const userInputType = new GraphQLInputObjectType({
-    name: 'UserInput',
+export const cateInputType = new GraphQLInputObjectType({
+    name: 'CateInput',
     fields: () => ({
-        email: {
-            type: GraphQLString
-        },
         name: {
             type: GraphQLString
         }
